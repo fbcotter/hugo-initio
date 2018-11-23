@@ -14,6 +14,10 @@
             {{ partial "recentworks.html" . }}
         {{ end }}
 
+        {{ if .Site.Params.showCode }}
+            {{ partial "code.html" . }}
+        {{ end }}
+
         {{ if .Site.Params.showDownload }}
             {{ partial "download.html" . }}
         {{ end }}

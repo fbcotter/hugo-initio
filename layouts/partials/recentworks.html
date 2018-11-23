@@ -1,26 +1,15 @@
-<div class="row section recentworks topspace">
+<div class="row section featured topspace">
 
-    <h2 class="section-title"><span>Recent Works</span></h2>
+    <h2 class="section-title"><span>Publications</span></h2>
 
-    <div class="thumbnails recentworks">
-        {{ range $index, $area := .Site.Data.recentworks }}
-            <div class="col-xs-12 col-sm-6 col-md-4 col-lg-4">
-                <a class="thumbnail" href="{{ .url }}">
-                    <span class="img">
-                        <img src="{{ .image }}" alt="">
-                        <span class="cover"><span class="more">See details &rarr;</span></span>
-                    </span>
-                    <span class="title">{{ .name }}</span>
-                </a>
-                <span class="details">
-                    {{ $len := sub (len .items) 1 }}
-                    {{ range $i, $item := where .items "id" .index }}
-                        <a href="{{ .url }}">{{ .name }}</a>
-                        {{ if gt $len $i }} | {{ end }}
-                    {{ end }}
-                </span>
+    <div class="">
+        {{ range where .Data.Pages "Section" "papers" }}
+            <div class="col-sm-12 col-md-6">
+                <h3 class="text-center">{{ .Title }}</h3>
+                <p>{{ .Summary }}</p>
+                <p class="text-center"><a href="{{ .Params.affiliatelink }}" class="btn btn-action">View on arxiv</a></p>
             </div>
         {{ end }}
     </div>
 
-</div> <!-- /section -->
+</div> <!-- / section -->

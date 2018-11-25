@@ -1,13 +1,17 @@
 <div class="row section featured topspace">
 
     <h2 class="section-title"><span>Selected Repos</span></h2>
+    <div class="col-md-12">
+        <p class="text-center">A full list of my repos is of course available on
+        github, but I wanted to point out and preface a select few that I think are
+        interesting.</p>
+    </div>
 
     <div class="">
         {{ range where .Data.Pages "Section" "repos" }}
-            <div class="col-sm-6 col-md-3">
-                <h3 class="text-center">{{ .Title }}</h3>
+            <div class="col-sm-12 col-md-12">
+                <h3 class="text-center"><a href="{{ .Params.affiliatelink }}">{{ .Title }}</a></h3>
                 <p>{{ .Summary }}</p>
-                <p class="text-center"><a href="{{ .Params.affiliatelink }}" class="btn btn-action">View on github</a></p>
             </div>
         {{ end }}
     </div>
